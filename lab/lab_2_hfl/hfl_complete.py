@@ -36,6 +36,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+# https://github.com/pytorch/examples/blob/main/mnist/main.py
 class MnistCnn(nn.Module):
     def __init__(self):
         super(MnistCnn, self).__init__()
@@ -68,7 +69,7 @@ class MnistCnn(nn.Module):
 from torch.optim import Optimizer
 
 
-def train_epoch(model: torch.nn.Module, loader: DataLoader, optimizer: Optimizer) -> None:
+def train_epoch(model: nn.Module, loader: DataLoader, optimizer: Optimizer) -> None:
     model.train()
 
     for data, target in loader:
@@ -187,7 +188,7 @@ class Server(ABC):
 from time import perf_counter
 
 from torch.optim import SGD
-from tqdm import tqdm
+from tqdm import trange
 
 
 class CentralizedServer(Server):
@@ -202,7 +203,7 @@ class CentralizedServer(Server):
         elapsed_time = 0.
         run_result = RunResult("Centralized", 1, 1, self.batch_size, 1, self.lr, self.seed)
 
-        for epoch in tqdm(range(nr_rounds), desc="Epochs", leave=False):
+        for epoch in trange(nr_rounds, desc="Epochs", leave=False):
             start_time = perf_counter()
             torch.manual_seed(self.seed + epoch + 1)
             train_epoch(self.model, self.loader_train, self.optimizer)
@@ -268,7 +269,7 @@ class FedSgdServer(DecentralizedServer):
         run_result = RunResult(
             "FedSGD", self.nr_clients, self.client_fraction, -1, 1, self.lr, self.seed)
 
-        for nr_round in tqdm(range(nr_rounds), desc="Rounds", leave=False):
+        for nr_round in trange(nr_rounds, desc="Rounds", leave=False):
             setup_start_time = perf_counter()
             self.model.train()
             self.optimizer.zero_grad()
@@ -348,7 +349,7 @@ class FedAvgServer(DecentralizedServer):
             self.name, self.nr_clients, self.client_fraction, self.batch_size,
             self.nr_local_epochs, self.lr, self.seed)
 
-        for nr_round in tqdm(range(nr_rounds), desc="Rounds", leave=False):
+        for nr_round in trange(nr_rounds, desc="Rounds", leave=False):
             setup_start_time = perf_counter()
             self.model.train()
             weights = [x.detach().cpu().clone() for x in self.model.parameters()]

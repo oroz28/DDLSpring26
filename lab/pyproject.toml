@@ -12,4 +12,6 @@ packages = [
     "lab_1_parallelism",
     "lab_2_hfl",
     "lab_3_vfl",
+    "lab_4_fed_gen_ai",
+    "lab_5_decentralized_rl"
 ]

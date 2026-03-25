@@ -6,7 +6,7 @@
   - [5.1. Homework](#51-homework)
   - [5.2. Group projects](#52-group-projects)
 - [6. Detailed schedule](#6-detailed-schedule)
-  - [All assignments are due before the lecture/lab day of the noted week.](#all-assignments-are-due-before-the-lecturelab-day-of-the-noted-week)
+  - [All deadlines are due **the day before the lecture/lab of the noted week**.](#all-deadlines-are-due-the-day-before-the-lecturelab-of-the-noted-week)
 
 This repository contains the materials of the MSc course on **Distributed Deep Learning Systems** course running in Spring 2026 at UniNE.
 
@@ -85,9 +85,9 @@ For the final step, teams must submit a written report and give a 20-minute pres
 | Week 7 (Mar 31)  | Decentralized RL                   | Decentralized RL |                        |
 | Week 8: *Easter* | *No Lecture*                       | *No Lab*         |                        |
 | Week 9 (Apr 14)  | Robust Distributed Learning        | HW 2 Q&A         |                        |
-| Week 10 (Apr 21) | Project Midterm                    | Project Midterm  | HW 2 + Project Midterm |
-| Week 11 (Apr 28) | Attacks and Defenses I             | Inference Attack |                        |
-| Week 12 (May 5)  | Attacks and Defenses II            | Training Attack  |                        |
+| Week 10 (Apr 21) |   Attacks and Defenses II          | Training Attack |                        | 
+| Week 11 (Apr 28) |Project Midterm                     | Project Midterm |                    |                       
+| Week 12 (May 5)  | Attacks and Defenses II            | Inference Attack |                        |
 | Week 13 (May 12) | Privacy-Enhancing Technologies     | DP               |                        |
 | Week 14 (May 19) | Distributed Inference              | HW 3 Q&A         |                        |
 | Week 15 (May 26) | Final Presentation                 |                  | HW 3 + Project Endterm |
